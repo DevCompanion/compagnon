@@ -1,0 +1,11 @@
+{
+    "name": "UuidGenerator",
+    "alias": "uuidgenerator",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\UuidGenerator\\Providers\\UuidGeneratorServiceProvider"
+    ],
+    "files": []
+}
