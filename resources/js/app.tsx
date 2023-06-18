@@ -9,7 +9,14 @@ const appName = window.document.getElementsByTagName('title')[0]?.innerText || '
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
+    resolve: (name) => {
+        let isModule = name.split("::");
+        if (isModule.length > 1) {
+            return resolvePageComponent(`../../modules/${isModule[0]}/Resources/assets/js/Pages/${isModule[1]}.tsx`, import.meta.glob('../../modules/**/*.tsx'));
+        }
+
+        return resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx'));
+    },
     setup({ el, App, props }) {
         const root = createRoot(el);
 
