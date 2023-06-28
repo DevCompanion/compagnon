@@ -8,18 +8,34 @@ An application with a set of development tools and resources to help developers.
 
 Comming soon
 
-## How to install (as a developer with Docker)
+## How to install
+
+### With [composer](https://getcomposer.org/) and [npm](https://www.npmjs.com/)
 Follow these steps to install and set up Compagnon on your local machine:
 
-- Clone the repository: git clone https://github.com/DevCompanion/compagnon.git
 - Navigate to the project directory: `cd compagnon`
-- Install dependencies: `composer install && npm install`
-- Configure the application settings by modifying the .env file:
+- Install dependencies: 
+    ```sh
+    composer install
+    npm install
   ```
+- Configure the application settings by modifying the .env file:
+  ```sh
   cp .env.example .env
   php artisan key:generate
   ```
-- Build the application: `npm run build`
+- Build the application: 
+    ```sh
+    npm run build    
+    ```
+
+### With [docker](https://www.docker.com/)
+
+```sh
+docker compose up -d 
+docker compose exec laravel.test composer install
+docker compose exec laravel.test npm install
+```
 
 Access Compagnon in your web browser at http://localhost/
 
