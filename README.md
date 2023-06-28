@@ -19,7 +19,14 @@ Follow these steps to install and set up Compagnon on your local machine:
   cp .env.example .env
   php artisan key:generate
   ```
+
 - Build the application: `npm run build`
+- Start project with Docker:
+```sh
+    docker compose up -d 
+    docker compose exec laravel.test composer install
+    docker compose exec laravel.test npm install
+```
 
 Access Compagnon in your web browser at http://localhost/
 
