@@ -8,7 +8,9 @@ An application with a set of development tools and resources to help developers.
 
 Comming soon
 
-## How to install with [composer](https://getcomposer.org/) and [npm](https://www.npmjs.com/)
+## How to install
+
+### With [composer](https://getcomposer.org/) and [npm](https://www.npmjs.com/)
 Follow these steps to install and set up Compagnon on your local machine:
 
 - Navigate to the project directory: `cd compagnon`
@@ -27,7 +29,7 @@ Follow these steps to install and set up Compagnon on your local machine:
     npm run build    
     ```
 
-## With [docker](https://www.docker.com/)
+### With [docker](https://www.docker.com/)
 
 ```sh
 docker compose up -d 
