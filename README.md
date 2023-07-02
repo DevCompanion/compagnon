@@ -21,6 +21,8 @@ Follow these steps to install and set up Compagnon on your local machine:
   ```
 - Configure the application settings by modifying the .env file:
   ```sh
+  cp external-modules/composer.json.example external-modules/composer.json
+  cp external-modules/composer.lock.example external-modules/composer.lock
   cp .env.example .env
   php artisan key:generate
   ```
