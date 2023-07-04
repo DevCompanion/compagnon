@@ -1,0 +1,13 @@
+{
+  "name": "devcompanion/companion-external-modules",
+  "description": "Install custom modules here",
+  "type": "project",
+  "require": {
+    "joshbrw/laravel-module-installer": "^2.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "joshbrw/laravel-module-installer": true
+    }
+  }
+}

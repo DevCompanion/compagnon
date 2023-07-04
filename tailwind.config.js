@@ -9,8 +9,10 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.tsx',
-        'Modules/**/resources/views/**/*.blade.php',
-        'Modules/**/resources/js/**/*.tsx',
+        './modules/**/resources/views/**/*.blade.php',
+        './modules/**/resources/js/**/*.tsx',
+        './external-modules/**/resources/views/**/*.blade.php',
+        './external-modules/**/resources/js/**/*.tsx',
     ],
 
     darkMode: ["class"],

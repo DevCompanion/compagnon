@@ -199,9 +199,9 @@ return [
     */
 
     'scan' => [
-        'enabled' => false,
+        'enabled' => true,
         'paths' => [
-            base_path('vendor/*/*'),
+            base_path('external-modules/*'),
         ],
     ],
     /*
@@ -214,10 +214,10 @@ return [
     */
 
     'composer' => [
-        'vendor' => 'nwidart',
+        'vendor' => 'devcompanion',
         'author' => [
-            'name' => 'Nicolas Widart',
-            'email' => 'n.widart@gmail.com',
+            'name' => 'DevCompanion',
+            'email' => 'devcompanion@pixrr.fr',
         ],
         'composer-output' => false,
     ],
