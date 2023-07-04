@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "devcompanion/compagnon",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "An application with a set of development tools and resources to help developers",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
@@ -28,7 +28,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Modules\\": "modules/",
+            "Modules\\": ["modules/", "external-modules/"],
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         },
@@ -50,7 +50,9 @@
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php -r \"file_exists('./external-modules/composer.json') || copy('./external-modules/composer.example.json', './external-modules/composer.json');\"",
+            "@php -r \"file_exists('./external-modules/composer.lock') || copy('./external-modules/composer.example.lock', './external-modules/composer.lock');\""
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
