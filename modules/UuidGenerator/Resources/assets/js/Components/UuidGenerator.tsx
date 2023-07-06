@@ -1,13 +1,14 @@
 import { v4 as uuidv4 } from 'uuid';
-import { useState } from "react";
+import { useState } from 'react';
+import { copyToClipboard } from '../utils/clipboard';
 export default function UuidGenerator() {
   const [uuid, setUuid] = useState(uuidv4());
-  const generateUuidv4 = () => {
+  const generateUuidV4Action = () => {
     setUuid(uuidv4());
   }
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(uuid);
+  const copyToClipboardAction = () => {
+    copyToClipboard(uuid);
   }
 
   return (
@@ -17,10 +18,10 @@ export default function UuidGenerator() {
           <div className="flex-grow">
             <div className="text-lg font-semibold text-gray-900">
               {uuid}
-              <button onClick={copyToClipboard} className="ml-2 text-sm text-gray-500 hover:text-gray-700">
+              <button onClick={copyToClipboardAction} className="ml-2 text-sm text-gray-500 hover:text-gray-700">
                 Copy
               </button>
-              <button onClick={generateUuidv4} className="ml-2 text-sm text-gray-500 hover:text-gray-700">
+              <button onClick={generateUuidV4Action} className="ml-2 text-sm text-gray-500 hover:text-gray-700">
                 Generate
               </button>
             </div>
