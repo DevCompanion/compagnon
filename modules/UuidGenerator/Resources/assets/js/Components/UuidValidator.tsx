@@ -7,7 +7,9 @@ import clsx from "clsx";
 import { Input } from "@/components/ui/input";
 // @ts-ignore
 import { Label } from "@/components/ui/label";
+import { useTranslation } from "react-i18next";
 export default function UuidValidator() {
+  const { t } = useTranslation();
   const [uuid, setUuid] = useState('');
   const isValid = useMemo(() => {
     return uuidValidate(uuid) && uuidVersion(uuid) === 4;
@@ -30,7 +32,7 @@ export default function UuidValidator() {
                 },
               )}
               >
-                {isValid ? 'Valid' : 'Invalid'} UUID v4
+                {t('validator.' + (isValid ? 'valid' : 'invalid'), {ns: 'UuidGenerator', value:'UUID v4'})}
               </div>
             </div>
           </div>
