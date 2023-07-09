@@ -10,33 +10,40 @@ Comming soon
 
 ## How to install
 
+After cloning the repository, run the following commands in your terminal:
+
+```sh
+cp .env.example .env
+cp external-modules/composer.json.example external-modules/composer.json
+cp external-modules/composer.lock.example external-modules/composer.lock
+```
+
 ### With [composer](https://getcomposer.org/) and [npm](https://www.npmjs.com/)
 Follow these steps to install and set up Compagnon on your local machine:
 
 - Navigate to the project directory: `cd compagnon`
-- Install dependencies: 
-    ```sh
+- Install dependencies:
+  ```sh
     composer install
     npm install
   ```
-- Configure the application settings by modifying the .env file:
+- Generate a new application key:
   ```sh
-  cp external-modules/composer.json.example external-modules/composer.json
-  cp external-modules/composer.lock.example external-modules/composer.lock
-  cp .env.example .env
   php artisan key:generate
   ```
 - Build the application: 
-    ```sh
-    npm run build    
-    ```
+  ```sh
+  npm run build
+  ```
 
 ### With [docker](https://www.docker.com/)
 
 ```sh
-docker compose up -d 
+docker compose up -d
 docker compose exec laravel.test composer install
+docker compose exec laravel.test php artisan key:generate
 docker compose exec laravel.test npm install
+docker compose exec laravel.test npm run build
 ```
 
 Access Compagnon in your web browser at http://localhost/
