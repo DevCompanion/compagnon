@@ -2,6 +2,7 @@ init.app:
 	cp .env.example .env
 	cp external-modules/composer.json.example external-modules/composer.json
 	cp external-modules/composer.lock.example external-modules/composer.lock
+	touch database/database.sqlite
 
 composer_ci:
 	composer install --no-interaction --no-progress --no-suggest --prefer-dist --optimize-autoloader
