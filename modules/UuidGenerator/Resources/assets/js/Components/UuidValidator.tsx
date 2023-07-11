@@ -4,9 +4,9 @@ import { useState, useMemo } from "react";
 // @ts-ignore
 import clsx from "clsx";
 // @ts-ignore
-import { Input } from "@/components/ui/input";
+import { Input } from "@/Components/ui/input";
 // @ts-ignore
-import { Label } from "@/components/ui/label";
+import { Label } from "@/Components/ui/label";
 import { useTranslation } from "react-i18next";
 export default function UuidValidator() {
   const { t } = useTranslation();

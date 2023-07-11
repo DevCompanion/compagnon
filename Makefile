@@ -13,3 +13,12 @@ npm_ci:
 	npm ci
 	find ./modules/ -type f -name "package.json" -not -path "./modules/**/node_modules/*" -execdir sh -c 'pwd;npm ci' \;
 	find ./external-modules/ -type f -name "package.json" -not -path "./external-modules/**/node_modules/*" -execdir sh -c 'pwd;npm ci' \;
+
+playwright.install_deps:
+	npx playwright install --with-deps
+
+playwright.generate:
+	npx playwright codegen
+
+playwright.test:
+	npx playwright test
