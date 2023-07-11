@@ -1,0 +1,53 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18.16.0
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv
+        coverage: none
+
+    - name: Run composer install
+      run: make composer_ci
+
+    - name: Prepare Laravel Application
+      run: |
+        cp .env.ci .env
+        php artisan key:generate
+
+    - name: Install dependencies
+      run: make npm_ci
+
+    - name: Install Playwright Browsers
+      run: make playwright.install_deps
+
+    - name: Build assets
+      run: npm run build
+
+    - name: Run Laravel Server
+      run: php artisan serve --host=127.0.0.1 --port=8000 > /dev/null 2>&1 &
+
+    - name: Run Playwright tests
+      run: make playwright.test
+
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
