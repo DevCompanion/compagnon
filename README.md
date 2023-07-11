@@ -16,6 +16,7 @@ After cloning the repository, run the following commands in your terminal:
 cp .env.example .env
 cp external-modules/composer.json.example external-modules/composer.json
 cp external-modules/composer.lock.example external-modules/composer.lock
+touch database/database.sqlite
 ```
 
 ### With [composer](https://getcomposer.org/) and [npm](https://www.npmjs.com/)
@@ -50,6 +51,7 @@ Access Compagnon in your web browser at http://localhost/
 
 ## Next steps
 
+- [x] i18n support
 - [ ] Add required modules as Dashboard and Settings
 - [ ] Update the UI layout
 - [ ] Add testing tools for PHP and Javascript, add tests
