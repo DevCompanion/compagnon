@@ -17,3 +17,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/test-results/
+/playwright-report/
+/playwright/.cache/
