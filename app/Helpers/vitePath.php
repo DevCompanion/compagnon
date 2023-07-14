@@ -5,9 +5,6 @@ declare(strict_types=1);
 if (! function_exists('vite_path')) {
     /**
      * Generate the correct path for vite based on the component name.
-     *
-     * @param  string  $component
-     * @return string
      */
     function vite_path(string $component): string
     {
@@ -19,7 +16,7 @@ if (! function_exists('vite_path')) {
 
         if (count($parts) === 2) {
             $path = "modules/{$parts[0]}/Resources/assets/js/Pages/{$parts[1]}.tsx";
-            if (file_exists(base_path('/') . $path)) {
+            if (file_exists(base_path('/').$path)) {
                 return $path;
             }
         }
@@ -32,7 +29,7 @@ if (! function_exists('vite_path')) {
             };
 
             $path = "{$moduleType}/{$parts[1]}/Resources/assets/js/Pages/{$parts[2]}.tsx";
-            if (file_exists(base_path('/') . $path)) {
+            if (file_exists(base_path('/').$path)) {
                 return $path;
             }
         }
