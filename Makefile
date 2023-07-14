@@ -14,6 +14,9 @@ npm_ci:
 	find ./modules/ -type f -name "package.json" -not -path "./modules/**/node_modules/*" -execdir sh -c 'pwd;npm ci' \;
 	find ./external-modules/ -type f -name "package.json" -not -path "./external-modules/**/node_modules/*" -execdir sh -c 'pwd;npm ci' \;
 
+pint:
+	./vendor/bin/pint $(OPTIONS)
+
 playwright.install_deps:
 	npx playwright install --with-deps
 
