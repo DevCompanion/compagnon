@@ -53,10 +53,12 @@ Access Compagnon in your web browser at http://localhost/
 ## Next steps
 
 - [x] i18n support
+- [ ] Remove default views
 - [ ] Add required modules as Dashboard and Settings
 - [ ] Update the UI layout
 - [ ] Add testing tools for PHP and Javascript, add tests
 - [ ] Add a documentation for external modules
+- [ ] Add stubs for modules
 - [ ] Add a documentation for Compagnon
 - [ ] Support NativePHP
 
