@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Pint & Pest Tests
 on:
   push:
     branches: [ main, master ]
@@ -21,10 +21,13 @@ jobs:
         php-version: '8.2'
         tools: composer:v2
         extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv
-        coverage: none
+        coverage: xdebug
 
     - name: Run composer install
       run: make composer_ci
+
+    - name: Install dependencies
+      run: make npm_ci
 
     - name: Prepare Laravel Application
       run: |
@@ -33,11 +36,8 @@ jobs:
         php artisan key:generate
         php artisan key:generate --env=testing
 
-    - name: Install dependencies
-      run: make npm_ci
-
-    - name: Install Playwright Browsers
-      run: make playwright.install_deps
+    - name: Run Laravel Pint
+      run: make pint OPTIONS="--test"
 
     - name: Build assets
       run: npm run build
@@ -45,12 +45,5 @@ jobs:
     - name: Run Laravel Server
       run: php artisan serve --host=127.0.0.1 --port=8000 > /dev/null 2>&1 &
 
-    - name: Run Playwright tests
-      run: make playwright.test
-
-    - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+    - name: Tests
+      run: make test

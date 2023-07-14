@@ -3,6 +3,7 @@ init.app:
 	cp external-modules/composer.json.example external-modules/composer.json
 	cp external-modules/composer.lock.example external-modules/composer.lock
 	touch database/database.sqlite
+	touch database/database.testing.sqlite
 
 composer_ci:
 	composer install --no-interaction --no-progress --no-suggest --prefer-dist --optimize-autoloader
@@ -16,6 +17,9 @@ npm_ci:
 
 pint:
 	./vendor/bin/pint $(OPTIONS)
+
+test:
+	php artisan test --parallel --recreate-databases $(OPTIONS)
 
 playwright.install_deps:
 	npx playwright install --with-deps
