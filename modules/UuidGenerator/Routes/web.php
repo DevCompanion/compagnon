@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('uuid-generator')->group(function() {
+Route::prefix('uuid-generator')->group(function () {
     Route::get('/', 'UuidGeneratorController@index');
 });
