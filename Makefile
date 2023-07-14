@@ -21,4 +21,5 @@ playwright.generate:
 	npx playwright codegen
 
 playwright.test:
-	npx playwright test
+	npx playwright test --pass-with-no-tests
+	npx playwright test --pass-with-no-tests -c modules/playwright.config.ts
