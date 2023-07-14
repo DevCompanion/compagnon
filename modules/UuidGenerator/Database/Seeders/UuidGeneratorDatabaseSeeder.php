@@ -2,8 +2,8 @@
 
 namespace Modules\UuidGenerator\Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class UuidGeneratorDatabaseSeeder extends Seeder
 {
