@@ -8,6 +8,8 @@ Fixes # (issue)
 
 What types of changes does your code introduce to the project?
 
+- [ ] Documentation (code comments, README, etc.)
+- [ ] Refactoring (no functional changes, no api changes)
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
@@ -26,3 +28,4 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] Added relevant unit tests to test the changes
 - [ ] All unit tests pass locally with the changes
 - [ ] No dependent changes are required to be merged or published
+- [ ] Added a screenshot if the change affects UI
