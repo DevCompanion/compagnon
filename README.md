@@ -6,7 +6,7 @@ An application with a set of development tools and resources to help developers.
 
 ## Download (MacOS, Windows, Linux)
 
-Comming soon
+Coming soon
 
 ## How to install
 
