@@ -2,26 +2,26 @@
 
 declare(strict_types=1);
 
-if (! function_exists('vite_path')) {
+if ( ! function_exists('vite_path')) {
     /**
      * Generate the correct path for vite based on the component name.
      */
     function vite_path(string $component): string
     {
         $parts = explode('::', $component);
-        if (count($parts) === 1) {
+        if (1 === count($parts)) {
             // This is a normal component, not part of a module.
             return "resources/js/Pages/{$parts[0]}.tsx";
         }
 
-        if (count($parts) === 2) {
+        if (2 === count($parts)) {
             $path = "modules/{$parts[0]}/Resources/assets/js/Pages/{$parts[1]}.tsx";
-            if (file_exists(base_path('/').$path)) {
+            if (file_exists(base_path('/') . $path)) {
                 return $path;
             }
         }
 
-        if (count($parts) === 3) {
+        if (3 === count($parts)) {
             $moduleType = match ($parts[0]) {
                 'Modules' => 'modules',
                 'ExternalModules' => 'external-modules',
@@ -29,7 +29,7 @@ if (! function_exists('vite_path')) {
             };
 
             $path = "{$moduleType}/{$parts[1]}/Resources/assets/js/Pages/{$parts[2]}.tsx";
-            if (file_exists(base_path('/').$path)) {
+            if (file_exists(base_path('/') . $path)) {
                 return $path;
             }
         }

@@ -16,7 +16,7 @@ npm_ci:
 	find ./external-modules/ -type f -name "package.json" -not -path "./external-modules/**/node_modules/*" -execdir sh -c 'pwd;npm ci' \;
 
 pint:
-	./vendor/bin/pint $(OPTIONS)
+	./vendor/bin/pint --config=pint.json $(OPTIONS)
 
 test:
 	php artisan test --parallel --recreate-databases $(OPTIONS)

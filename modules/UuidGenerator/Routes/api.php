@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Http\Request;
 
 /*
@@ -13,6 +15,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/uuidgenerator', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:api')->get('/uuidgenerator', fn (Request $request) => $request->user());
