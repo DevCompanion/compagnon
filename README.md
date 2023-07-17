@@ -18,6 +18,10 @@ cp external-modules/composer.json.example external-modules/composer.json
 cp external-modules/composer.lock.example external-modules/composer.lock
 touch database/database.sqlite
 touch database/database.testing.sqlite
+
+# OR
+
+make init.app
 ```
 
 ### With [composer](https://getcomposer.org/) and [npm](https://www.npmjs.com/)
@@ -53,13 +57,13 @@ Access Compagnon in your web browser at http://localhost/
 ## Next steps
 
 - [x] i18n support
+- [x] Add testing tools for PHP and Javascript, add tests
+- [x] Add a documentation for Compagnon
 - [ ] Remove default views
-- [ ] Add required modules as Dashboard and Settings
 - [ ] Update the UI layout
-- [ ] Add testing tools for PHP and Javascript, add tests
-- [ ] Add a documentation for external modules
+- [ ] Add required modules as Dashboard and Settings
+- [ ] Add a documentation for (external) modules
 - [ ] Add stubs for modules
-- [ ] Add a documentation for Compagnon
 - [ ] Support NativePHP
 
 ## Contributing
