@@ -30,8 +30,8 @@ Follow these steps to install and set up Compagnon on your local machine:
 - Navigate to the project directory: `cd compagnon`
 - Install dependencies:
   ```sh
-    composer install
-    npm install
+    make composer_ci
+    make npm_ci
   ```
 - Generate a new application key:
   ```sh
@@ -46,9 +46,9 @@ Follow these steps to install and set up Compagnon on your local machine:
 
 ```sh
 docker compose up -d
-docker compose exec laravel.test composer install
+docker compose exec laravel.test make composer_ci
 docker compose exec laravel.test php artisan key:generate
-docker compose exec laravel.test npm install
+docker compose exec laravel.test make npm_ci
 docker compose exec laravel.test npm run build
 ```
 
