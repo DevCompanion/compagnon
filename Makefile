@@ -21,6 +21,18 @@ pint:
 test:
 	php artisan test --parallel --recreate-databases $(OPTIONS)
 
+eslint:
+	npm run lint
+
+eslint.fix:
+	npm run lint:fix
+
+prettier:
+	npm run format
+
+prettier.fix:
+	npm run format:fix
+
 playwright.install_deps:
 	npx playwright install --with-deps
 
