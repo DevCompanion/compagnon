@@ -13,23 +13,19 @@
         "noImplicitAny": false,
         "noEmit": true,
         "paths": {
-            "@/*": ["./resources/js/*"]
-        }
+            "@/*": ["../../resources/js/*"]
+        },
+        "baseUrl": "./",
     },
     "include": [
-        "vite.config.js",
-        "playwright.config.ts",
-        "modules/playwright.config.ts",
         ".eslintrc.cjs",
-        "tailwind.config.js",
-        "postcss.config.js",
-        "resources/js/**/*.js",
-        "resources/js/**/*.ts",
-        "resources/js/**/*.tsx",
-        "resources/js/**/*.d.ts",
-        "tests/**/*.js",
-        "tests/**/*.ts",
-        "tests/**/*.tsx",
-        "tests/**/*.d.ts",
-    ],
+        "Resources/assets/js/**/*.js",
+        "Resources/assets/js/**/*.ts",
+        "Resources/assets/js/**/*.tsx",
+        "Resources/assets/js/**/*.d.ts",
+        "Tests/**/*.js",
+        "Tests/**/*.ts",
+        "Tests/**/*.tsx",
+        "Tests/**/*.d.ts",
+    ]
 }
