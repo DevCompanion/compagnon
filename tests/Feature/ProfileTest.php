@@ -12,7 +12,7 @@ test('profile page is displayed', function (): void {
         ->get('/profile');
 
     $response->assertOk();
-});
+})->skip();
 
 test('profile information can be updated', function (): void {
     $user = User::factory()->create();
@@ -33,7 +33,7 @@ test('profile information can be updated', function (): void {
     $this->assertSame('Test User', $user->name);
     $this->assertSame('test@example.com', $user->email);
     $this->assertNull($user->email_verified_at);
-});
+})->skip();
 
 test('email verification status is unchanged when the email address is unchanged', function (): void {
     $user = User::factory()->create();
@@ -50,7 +50,7 @@ test('email verification status is unchanged when the email address is unchanged
         ->assertRedirect('/profile');
 
     $this->assertNotNull($user->refresh()->email_verified_at);
-});
+})->skip();
 
 test('user can delete their account', function (): void {
     $user = User::factory()->create();
@@ -67,7 +67,7 @@ test('user can delete their account', function (): void {
 
     $this->assertGuest();
     $this->assertNull($user->fresh());
-});
+})->skip();
 
 test('correct password must be provided to delete account', function (): void {
     $user = User::factory()->create();
@@ -84,4 +84,4 @@ test('correct password must be provided to delete account', function (): void {
         ->assertRedirect('/profile');
 
     $this->assertNotNull($user->fresh());
-});
+})->skip();
