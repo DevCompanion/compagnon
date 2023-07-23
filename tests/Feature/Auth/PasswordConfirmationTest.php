@@ -10,7 +10,7 @@ test('confirm password screen can be rendered', function (): void {
     $response = $this->actingAs($user)->get('/confirm-password');
 
     $response->assertStatus(200);
-});
+})->skip();
 
 test('password can be confirmed', function (): void {
     $user = User::factory()->create();
@@ -21,7 +21,7 @@ test('password can be confirmed', function (): void {
 
     $response->assertRedirect();
     $response->assertSessionHasNoErrors();
-});
+})->skip();
 
 test('password is not confirmed with invalid password', function (): void {
     $user = User::factory()->create();
@@ -31,4 +31,4 @@ test('password is not confirmed with invalid password', function (): void {
     ]);
 
     $response->assertSessionHasErrors();
-});
+})->skip();

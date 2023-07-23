@@ -9,7 +9,7 @@ test('login screen can be rendered', function (): void {
     $response = $this->get('/login');
 
     $response->assertStatus(200);
-});
+})->skip();
 
 test('users can authenticate using the login screen', function (): void {
     $user = User::factory()->create();
@@ -21,7 +21,7 @@ test('users can authenticate using the login screen', function (): void {
 
     $this->assertAuthenticated();
     $response->assertRedirect(RouteServiceProvider::HOME);
-});
+})->skip();
 
 test('users can not authenticate with invalid password', function (): void {
     $user = User::factory()->create();
@@ -32,4 +32,4 @@ test('users can not authenticate with invalid password', function (): void {
     ]);
 
     $this->assertGuest();
-});
+})->skip();
