@@ -59,12 +59,14 @@ Access Compagnon in your web browser at http://localhost/
 - [x] i18n support
 - [x] Add testing tools for PHP and Javascript, add tests
 - [x] Add a documentation for Compagnon
-- [ ] Remove default views
+- [x] Remove default views
+- [x] Add stubs for modules
+- [ ] Add vitest for unit tests
 - [ ] Update the UI layout
 - [ ] Add required modules as Dashboard and Settings
 - [ ] Add a documentation for (external) modules
-- [ ] Add stubs for modules
 - [ ] Support NativePHP
+- [ ] Create more modules
 
 ## Contributing
 

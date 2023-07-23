@@ -73,14 +73,16 @@ For example, in `modules/UuidGenerator/Resources/lang/en.json`:
 
 You can use it on any page that uses React in the application:
 
-```jsx
+```tsx
 import {useTranslation} from "react-i18next";
-
-export default function Index() {
+import { type PageProps } from '@/types';
+export default function Index({ ns }: PageProps<{ ns: string }>) {
     const { t } = useTranslation();
     return (
         <>
             <h1>{t('title', {ns: 'UuidGenerator'})}</h1>
+            {/* OR */}
+            <h1>{t('title', { ns })}</h1>
         </>
     );
 }
@@ -100,9 +102,9 @@ For example (1), in `resources/lang/en/validator.json`:
 
 You can use it on any page that uses React in the application:
 
-```jsx
+```tsx
 import {useTranslation} from "react-i18next";
-
+import { type PageProps } from '@/types';
 export default function Index() {
     const { t } = useTranslation();
     return (
@@ -123,14 +125,15 @@ For example (2), in `modules/UuidGenerator/Resources/lang/en/generator.json`:
 
 You can use it on any page that uses React in the application:
 
-```jsx
+```tsx
 import {useTranslation} from "react-i18next";
+import { type PageProps } from '@/types';
 
-export default function Index() {
+export default function Index({ ns }: PageProps<{ ns: string }>) {
     const { t } = useTranslation();
     return (
         <>
-            <h1>{t('generator.title', {ns: 'UuidGenerator'})}</h1>
+            <h1>{t('generator.title', { ns })}</h1>
         </>
     );
 }
