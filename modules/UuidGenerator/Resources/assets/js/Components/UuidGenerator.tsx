@@ -2,7 +2,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { copyToClipboard } from '../utils/clipboard';
 import { useTranslation } from 'react-i18next';
-export default function UuidGenerator() {
+import { type PageProps } from '@/types';
+export default function UuidGenerator({ ns }: PageProps<{ ns: string }>) {
   const { t } = useTranslation();
   const [uuid, setUuid] = useState(uuidv4());
   const generateUuidV4Action = () => {
@@ -24,16 +25,16 @@ export default function UuidGenerator() {
                 onClick={copyToClipboardAction}
                 className="ml-2 text-sm text-gray-500 hover:text-gray-700"
               >
-                {t('generator.copy', { ns: 'UuidGenerator' })}
+                {t('generator.copy', { ns })}
               </button>
               <button
                 onClick={generateUuidV4Action}
                 className="ml-2 text-sm text-gray-500 hover:text-gray-700"
               >
-                {t('generator.generate', { ns: 'UuidGenerator' })}
+                {t('generator.generate', { ns })}
               </button>
             </div>
-            <div className="text-sm text-gray-500">{t('uuid', { ns: 'UuidGenerator' })}</div>
+            <div className="text-sm text-gray-500">{t('uuid', { ns })}</div>
           </div>
         </div>
       </div>
