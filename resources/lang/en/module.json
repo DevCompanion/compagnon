@@ -1,0 +1,16 @@
+{
+  "category.automation": "Automation",
+  "category.converters": "Converters",
+  "category.date_and_times": "Date and Times",
+  "category.development_tools": "Development Tools",
+  "category.generators": "Generators",
+  "category.graphics": "Graphics",
+  "category.networks": "Networks",
+  "category.others": "Others",
+  "category.productivity": "Productivity",
+  "category.security": "Security",
+  "category.terminal": "Terminal",
+  "category.texts": "Texts",
+  "category.resources": "Resources",
+  "category.web_development": "Web Development"
+}

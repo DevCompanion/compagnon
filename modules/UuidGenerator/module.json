@@ -3,6 +3,11 @@
     "alias": "uuidgenerator",
     "description": "",
     "keywords": [],
+    "metadata": {
+        "category_path": [
+            "category.generators"
+        ]
+    },
     "priority": 0,
     "providers": [
         "Modules\\UuidGenerator\\Providers\\UuidGeneratorServiceProvider"
