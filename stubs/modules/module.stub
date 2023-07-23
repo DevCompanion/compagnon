@@ -1,16 +1,16 @@
 {
-    "name": "UuidGenerator",
-    "alias": "uuidgenerator",
+    "name": "$STUDLY_NAME$",
+    "alias": "$LOWER_NAME$",
     "description": "",
     "keywords": [],
     "metadata": {
         "category_path": [
-            "category.generators"
+            "category.others"
         ]
     },
     "priority": 0,
     "providers": [
-        "Modules\\UuidGenerator\\Providers\\UuidGeneratorServiceProvider"
+        "Modules\\$STUDLY_NAME$\\Providers\\$STUDLY_NAME$ServiceProvider"
     ],
     "files": []
 }
