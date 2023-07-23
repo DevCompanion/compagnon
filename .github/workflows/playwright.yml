@@ -40,7 +40,7 @@ jobs:
       run: make playwright.install_deps
 
     - name: Build assets
-      run: npm run build
+      run: npm run build -- --mode=testing
 
     - name: Run Laravel Server
       run: php artisan serve --host=127.0.0.1 --port=8000 > /dev/null 2>&1 &

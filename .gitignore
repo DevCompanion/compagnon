@@ -28,3 +28,11 @@ _ide_helper_models.php
 
 # EsLint
 .eslintcache
+
+# MacOS files
+.DS_Store
+**/.DS_Store
+.AppleDouble
+**/.AppleDouble
+.LSOverride
+**/.LSOverride
