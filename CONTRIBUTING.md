@@ -6,7 +6,7 @@ email, or any other method with the owners of this repository before making a ch
 To contribute to:
 
 - the translation of the project, please refer to the [translation guide](docs/translations.md).
-- the module (documentation available soon)
+- the module, please refer to the [module guide](docs/modules.md).
 
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
