@@ -1,4 +1,5 @@
 {
+  "label": "Uuid v4 Validator",
   "valid": "Valid {{value}}",
   "invalid": "Invalid {{value}}"
 }

@@ -1,0 +1,16 @@
+{
+    "name": "$STUDLY_NAME$",
+    "alias": "$LOWER_NAME$",
+    "description": "",
+    "keywords": [],
+    "metadata": {
+        "category_path": [
+            "category.others"
+        ]
+    },
+    "priority": 0,
+    "providers": [
+        "Modules\\$STUDLY_NAME$\\Providers\\$STUDLY_NAME$ServiceProvider"
+    ],
+    "files": []
+}
