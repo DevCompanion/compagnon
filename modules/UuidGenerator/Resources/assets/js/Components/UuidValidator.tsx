@@ -4,7 +4,8 @@ import clsx from 'clsx';
 import { Input } from '@/Components/ui/input';
 import { Label } from '@/Components/ui/label';
 import { useTranslation } from 'react-i18next';
-export default function UuidValidator() {
+import { type PageProps } from '@/types';
+export default function UuidValidator({ ns }: PageProps<{ ns: string }>) {
   const { t } = useTranslation();
   const [uuid, setUuid] = useState('');
   const isValid = useMemo(() => {
@@ -15,7 +16,7 @@ export default function UuidValidator() {
     <>
       <div className="w-full sm:max-w-xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
         <div className="grid w-full items-center gap-1.5">
-          <Label htmlFor="uuid-input-validator">Uuid v4 Validator</Label>
+          <Label htmlFor="uuid-input-validator">{t('validator.label', { ns })}</Label>
           <Input
             type="text"
             id="uuid-input-validator"
@@ -36,7 +37,7 @@ export default function UuidValidator() {
                 })}
               >
                 {t('validator.' + (isValid ? 'valid' : 'invalid'), {
-                  ns: 'UuidGenerator',
+                  ns,
                   value: 'UUID v4',
                 })}
               </div>

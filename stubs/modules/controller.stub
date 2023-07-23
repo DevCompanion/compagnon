@@ -1,0 +1,55 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Inertia\Inertia;
+use Inertia\Response;
+
+class $CLASS$ extends Controller
+{
+    private string $module_name;
+
+    public function __construct()
+    {
+        $this->module_name = basename(dirname(__DIR__, 2));
+    }
+
+    public function index(): Response
+    {
+        return Inertia::render(\sprintf('%s::Index', $this->module_name), [
+            'ns' => $this->module_name,
+        ]);
+    }
+
+    public function create(): Response
+    {
+        //
+    }
+
+    public function store(Request $request): Response
+    {
+        //
+    }
+
+    public function show($id): Response
+    {
+        //
+    }
+
+    public function edit($id): Response
+    {
+        //
+    }
+
+    public function update(Request $request, $id): Response
+    {
+        //
+    }
+
+    public function destroy($id): Response
+    {
+        //
+    }
+}
