@@ -6,8 +6,7 @@ test.beforeEach(async ({ page }, testInfo) => {
 });
 
 test('Has valid uuid', async ({ page }) => {
-  const uuidElement = await page.innerHTML('div.text-lg.font-semibold.text-gray-900');
-  const uuid = uuidElement.split('<')[0];
+  const uuid = await page.getByTestId('uuid-value').innerText();
   await page.getByPlaceholder('Uuid v4').fill(uuid);
   expect(await page.getByText('Valid UUID v4').innerText()).toBe('Valid UUID v4');
 });
