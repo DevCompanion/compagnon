@@ -8,6 +8,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Inertia\Inertia;
+use Modules\Dashboard\Providers\DashboardServiceProvider;
+use Modules\UuidGenerator\Providers\UuidGeneratorServiceProvider;
 
 class DashboardController extends Controller
 {
@@ -18,8 +20,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Dashboard::Index');
-        //return view('dashboard::index');
+        return Inertia::render(sprintf('%s::Index', DashboardServiceProvider::$moduleName), [
+            'ns' => UuidGeneratorServiceProvider::$moduleName,
+        ]);
     }
 
     /**

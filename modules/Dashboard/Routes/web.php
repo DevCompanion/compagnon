@@ -14,5 +14,7 @@ declare(strict_types=1);
 */
 
 Route::prefix('dashboard')->group(function (): void {
-    Route::get('/', 'DashboardController@index');
+    Route::name('dashboard.')->group(function (): void {
+        Route::get('/', 'DashboardController@index')->name('index');
+    });
 });
