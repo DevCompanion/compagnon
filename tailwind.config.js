@@ -10,11 +10,10 @@ export default {
     './resources/views/**/*.blade.php',
     './resources/js/**/*.tsx',
     './modules/**/resources/views/**/*.blade.php',
-    './modules/**/resources/js/**/*.tsx',
+    './modules/**/Resources/assets/js/**/*.tsx',
     './external-modules/**/resources/views/**/*.blade.php',
     './external-modules/**/resources/js/**/*.tsx',
   ],
-
   darkMode: ['class'],
 
   theme: {
@@ -28,7 +27,8 @@ export default {
 
     extend: {
       fontFamily: {
-        sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+        sans: ['Roboto', ...defaultTheme.fontFamily.sans],
+        nunito: "'Nunito'",
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -64,6 +64,11 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        brown: {
+          50: '#F1E5E3',
+          300: '#C65F27',
+          700: '#633E2D',
+        },
       },
       borderRadius: {
         lg: `var(--radius)`,
@@ -86,6 +91,5 @@ export default {
       },
     },
   },
-
   plugins: [forms, tailwindAnimate],
 };

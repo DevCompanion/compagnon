@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "jsx": "react-jsx",
+        "strict": true,
+        "isolatedModules": true,
+        "target": "ESNext",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": false,
+        "noEmit": true,
+        "paths": {
+            "@/*": ["../../resources/js/*"]
+        },
+        "baseUrl": "./",
+    },
+    "include": [
+        ".eslintrc.cjs",
+        "Resources/assets/js/**/*.js",
+        "Resources/assets/js/**/*.ts",
+        "Resources/assets/js/**/*.tsx",
+        "Resources/assets/js/**/*.d.ts",
+        "Tests/**/*.js",
+        "Tests/**/*.ts",
+        "Tests/**/*.tsx",
+        "Tests/**/*.d.ts",
+    ]
+}
