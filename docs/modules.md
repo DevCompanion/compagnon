@@ -85,19 +85,23 @@ It may be changed in the future.
 
 ## Categorize your module
 
-You can categorize your module by adding the `metadata.category_path` property in the `module.json` file.
+You can categorize your module by adding the `metadata.category_path` property in the `config.php` file.
 
-For example, in `modules/UuidGenerator/module.json`:
-```json
-{
-    ...
-    "metadata": {
-        "category_path": [
-            "category.generators"
+For example, in `modules/UuidGenerator/Config/config.php`:
+```php
+<?php
+
+declare(strict_types=1);
+
+return [
+    'name' => 'UuidGenerator',
+    'metadata' => [
+        'category_path' => [
+            'category.generators'
         ]
-    },
-    ...
-}
+    ],
+];
+
 ```
 
 Pass the key of the category in the array.
@@ -105,6 +109,42 @@ Pass the key of the category in the array.
 You can find the list of categories in the file `resources/lang/<lang>/module.json` prefixed with `category.`.
 
 Feel free to add your own categories in the file `resources/lang/<lang>/module.json` and make a pull request if you think it can be useful to the project.
+
+NB: it can be changed in the future.
+
+You can access to the module config by calling the `config()` helper function as follows:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\UuidGenerator\Http\Controllers;
+
+use Illuminate\Http\Response;
+use Modules\UuidGenerator\Providers\UuidGeneratorServiceProvider;
+
+final class UuidGeneratorController
+{
+    public function index(): Response
+    {
+        $config = config(UuidGeneratorServiceProvider::$moduleNameLower);
+
+        /** $config will be:
+            [
+                'name' => 'UuidGenerator',
+                'metadata' => [
+                    'category_path' => [
+                        'category.generators'
+                    ]
+                ],
+            ];
+         */
+         
+        // ...
+    }
+}
+```
 
 ## Access to the module (front-end)
 
