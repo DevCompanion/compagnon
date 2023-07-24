@@ -1,3 +1,4 @@
 {
-    "UuidGenerator": true
+    "UuidGenerator": true,
+    "Dashboard": true
 }
