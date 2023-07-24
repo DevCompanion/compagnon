@@ -9,15 +9,9 @@ use Illuminate\Support\ServiceProvider;
 
 class DashboardServiceProvider extends ServiceProvider
 {
-    /**
-     * @var string
-     */
-    protected $moduleName = 'Dashboard';
+    public static string $moduleName = 'Dashboard';
 
-    /**
-     * @var string
-     */
-    protected $moduleNameLower = 'dashboard';
+    public static string $moduleNameLower = 'dashboard';
 
     /**
      * Boot the application events.
@@ -29,7 +23,7 @@ class DashboardServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
-        $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        $this->loadMigrationsFrom(module_path($this::$moduleName, 'Database/Migrations'));
     }
 
     /**
@@ -49,15 +43,15 @@ class DashboardServiceProvider extends ServiceProvider
      */
     public function registerViews(): void
     {
-        $viewPath = resource_path('views/modules/' . $this->moduleNameLower);
+        $viewPath = resource_path('views/modules/' . $this::$moduleNameLower);
 
-        $sourcePath = module_path($this->moduleName, 'Resources/views');
+        $sourcePath = module_path($this::$moduleName, 'Resources/views');
 
         $this->publishes([
             $sourcePath => $viewPath,
-        ], ['views', $this->moduleNameLower . '-module-views']);
+        ], ['views', $this::$moduleNameLower . '-module-views']);
 
-        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
+        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this::$moduleNameLower);
     }
 
     /**
@@ -67,14 +61,14 @@ class DashboardServiceProvider extends ServiceProvider
      */
     public function registerTranslations(): void
     {
-        $langPath = resource_path('lang/modules/' . $this->moduleNameLower);
+        $langPath = resource_path('lang/modules/' . $this::$moduleNameLower);
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
+            $this->loadTranslationsFrom($langPath, $this::$moduleNameLower);
             $this->loadJsonTranslationsFrom($langPath);
         } else {
-            $this->loadTranslationsFrom(module_path($this->moduleName, 'Resources/lang'), $this->moduleNameLower);
-            $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'Resources/lang'));
+            $this->loadTranslationsFrom(module_path($this::$moduleName, 'Resources/lang'), $this::$moduleNameLower);
+            $this->loadJsonTranslationsFrom(module_path($this::$moduleName, 'Resources/lang'));
         }
     }
 
@@ -96,11 +90,11 @@ class DashboardServiceProvider extends ServiceProvider
     protected function registerConfig(): void
     {
         $this->publishes([
-            module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
+            module_path($this::$moduleName, 'Config/config.php') => config_path($this::$moduleNameLower . '.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path($this->moduleName, 'Config/config.php'),
-            $this->moduleNameLower
+            module_path($this::$moduleName, 'Config/config.php'),
+            $this::$moduleNameLower
         );
     }
 
@@ -108,8 +102,8 @@ class DashboardServiceProvider extends ServiceProvider
     {
         $paths = [];
         foreach (Config::get('view.paths') as $path) {
-            if (is_dir($path . '/modules/' . $this->moduleNameLower)) {
-                $paths[] = $path . '/modules/' . $this->moduleNameLower;
+            if (is_dir($path . '/modules/' . $this::$moduleNameLower)) {
+                $paths[] = $path . '/modules/' . $this::$moduleNameLower;
             }
         }
 
