@@ -9,15 +9,9 @@ use Illuminate\Support\ServiceProvider;
 
 class UuidGeneratorServiceProvider extends ServiceProvider
 {
-    /**
-     * @var string
-     */
-    protected $moduleName = 'UuidGenerator';
+    public static string $moduleName = 'UuidGenerator';
 
-    /**
-     * @var string
-     */
-    protected $moduleNameLower = 'uuidgenerator';
+    public static string $moduleNameLower = 'uuidgenerator';
 
     /**
      * Boot the application events.
@@ -27,7 +21,7 @@ class UuidGeneratorServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
-        $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        $this->loadMigrationsFrom(module_path($this::$moduleName, 'Database/Migrations'));
     }
 
     /**
@@ -43,15 +37,15 @@ class UuidGeneratorServiceProvider extends ServiceProvider
      */
     public function registerViews(): void
     {
-        $viewPath = resource_path('views/modules/' . $this->moduleNameLower);
+        $viewPath = resource_path('views/modules/' . $this::$moduleNameLower);
 
-        $sourcePath = module_path($this->moduleName, 'Resources/views');
+        $sourcePath = module_path($this::$moduleName, 'Resources/views');
 
         $this->publishes([
             $sourcePath => $viewPath,
-        ], ['views', $this->moduleNameLower . '-module-views']);
+        ], ['views', $this::$moduleNameLower . '-module-views']);
 
-        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
+        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this::$moduleNameLower);
     }
 
     /**
@@ -59,16 +53,16 @@ class UuidGeneratorServiceProvider extends ServiceProvider
      */
     public function registerTranslations(): void
     {
-        $langPath = resource_path('lang/modules/' . $this->moduleNameLower);
+        $langPath = resource_path('lang/modules/' . $this::$moduleNameLower);
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
+            $this->loadTranslationsFrom($langPath, $this::$moduleNameLower);
             $this->loadJsonTranslationsFrom($langPath);
 
             return;
         }
-        $this->loadTranslationsFrom(module_path($this->moduleName, 'Resources/lang'), $this->moduleNameLower);
-        $this->loadJsonTranslationsFrom(module_path($this->moduleName, 'Resources/lang'));
+        $this->loadTranslationsFrom(module_path($this::$moduleName, 'Resources/lang'), $this::$moduleNameLower);
+        $this->loadJsonTranslationsFrom(module_path($this::$moduleName, 'Resources/lang'));
     }
 
     /**
@@ -87,11 +81,11 @@ class UuidGeneratorServiceProvider extends ServiceProvider
     protected function registerConfig(): void
     {
         $this->publishes([
-            module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
+            module_path($this::$moduleName, 'Config/config.php') => config_path($this::$moduleNameLower . '.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path($this->moduleName, 'Config/config.php'),
-            $this->moduleNameLower
+            module_path($this::$moduleName, 'Config/config.php'),
+            $this::$moduleNameLower
         );
     }
 
@@ -99,8 +93,8 @@ class UuidGeneratorServiceProvider extends ServiceProvider
     {
         $paths = [];
         foreach (Config::get('view.paths') as $path) {
-            if (is_dir($path . '/modules/' . $this->moduleNameLower)) {
-                $paths[] = $path . '/modules/' . $this->moduleNameLower;
+            if (is_dir($path . '/modules/' . $this::$moduleNameLower)) {
+                $paths[] = $path . '/modules/' . $this::$moduleNameLower;
             }
         }
 

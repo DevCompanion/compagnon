@@ -48,6 +48,7 @@ return [
             'tsconfig' => 'tsconfig.json',
         ],
         'replacements' => [
+            'controller' => ['STUDLY_NAME'],
             'routes/web' => ['LOWER_NAME', 'STUDLY_NAME'],
             'routes/api' => ['LOWER_NAME'],
             'vite' => ['LOWER_NAME'],
