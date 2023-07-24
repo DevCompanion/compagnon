@@ -1,0 +1,23 @@
+{
+    "name": "devcompanion/dashboard",
+    "description": "",
+    "authors": [
+        {
+            "name": "DevCompanion",
+            "email": "devcompanion@pixrr.fr"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Dashboard\\": ""
+        }
+    }
+}
