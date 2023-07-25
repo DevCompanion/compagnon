@@ -13,8 +13,8 @@ declare(strict_types=1);
 |
 */
 
-Route::prefix('uuid-generator')->group(function (): void {
-    Route::name('uuid-generator.')->group(function (): void {
+Route::prefix('uuid-generator')
+    ->name('uuidgenerator.')
+    ->group(function (): void {
         Route::get('/', 'UuidGeneratorController@index')->name('index');
     });
-});
