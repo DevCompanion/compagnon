@@ -2,7 +2,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prepare": "husky install",
     "dev": "vite",
     "build": "tsc && vite build",
     "test": "playwright test",
@@ -36,7 +35,6 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^8.0.3",
     "laravel-vite-plugin": "^0.7.5",
     "lint-staged": "^13.2.3",
     "postcss": "^8.4.18",
