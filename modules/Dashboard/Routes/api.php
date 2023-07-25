@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/dashboard', fn (Request $request) => $request->user());
+Route::middleware('api')
+    ->name('menu.')
+    ->prefix('menu')
+    ->group(function (): void {
+        Route::get('/', 'MenuController@index')->name('index');
+    });
