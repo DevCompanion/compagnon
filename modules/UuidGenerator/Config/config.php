@@ -8,5 +8,6 @@ return [
         'category_path' => [
             'category.generators',
         ],
+        //'icon' => Module::asset('uuidgenerator:images/icon.svg'),
     ],
 ];
