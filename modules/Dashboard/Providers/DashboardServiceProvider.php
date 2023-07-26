@@ -6,12 +6,13 @@ namespace Modules\Dashboard\Providers;
 
 use Config;
 use Illuminate\Support\ServiceProvider;
+use Modules\Dashboard\Service\MenuFactory;
 
 class DashboardServiceProvider extends ServiceProvider
 {
-    public static string $moduleName = 'Dashboard';
+    public const MODULE_NAME = 'Dashboard';
 
-    public static string $moduleNameLower = 'dashboard';
+    public const MODULE_LOWER_NAME = 'dashboard';
 
     /**
      * Boot the application events.
@@ -21,7 +22,7 @@ class DashboardServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
-        $this->loadMigrationsFrom(module_path($this::$moduleName, 'Database/Migrations'));
+        $this->loadMigrationsFrom(module_path(self::MODULE_NAME, 'Database/Migrations'));
     }
 
     /**
@@ -30,6 +31,8 @@ class DashboardServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->register(RouteServiceProvider::class);
+
+        $this->app->bind('menu-factory', fn () => new MenuFactory());
     }
 
     /**
@@ -37,15 +40,15 @@ class DashboardServiceProvider extends ServiceProvider
      */
     public function registerViews(): void
     {
-        $viewPath = resource_path('views/modules/' . $this::$moduleNameLower);
+        $viewPath = resource_path('views/modules/' . self::MODULE_LOWER_NAME);
 
-        $sourcePath = module_path($this::$moduleName, 'Resources/views');
+        $sourcePath = module_path(self::MODULE_NAME, 'Resources/views');
 
         $this->publishes([
             $sourcePath => $viewPath,
-        ], ['views', $this::$moduleNameLower . '-module-views']);
+        ], ['views', self::MODULE_LOWER_NAME . '-module-views']);
 
-        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this::$moduleNameLower);
+        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), self::MODULE_LOWER_NAME);
     }
 
     /**
@@ -53,14 +56,14 @@ class DashboardServiceProvider extends ServiceProvider
      */
     public function registerTranslations(): void
     {
-        $langPath = resource_path('lang/modules/' . $this::$moduleNameLower);
+        $langPath = resource_path('lang/modules/' . self::MODULE_LOWER_NAME);
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, $this::$moduleNameLower);
+            $this->loadTranslationsFrom($langPath, self::MODULE_LOWER_NAME);
             $this->loadJsonTranslationsFrom($langPath);
         } else {
-            $this->loadTranslationsFrom(module_path($this::$moduleName, 'Resources/lang'), $this::$moduleNameLower);
-            $this->loadJsonTranslationsFrom(module_path($this::$moduleName, 'Resources/lang'));
+            $this->loadTranslationsFrom(module_path(self::MODULE_NAME, 'Resources/lang'), self::MODULE_LOWER_NAME);
+            $this->loadJsonTranslationsFrom(module_path(self::MODULE_NAME, 'Resources/lang'));
         }
     }
 
@@ -80,11 +83,11 @@ class DashboardServiceProvider extends ServiceProvider
     protected function registerConfig(): void
     {
         $this->publishes([
-            module_path($this::$moduleName, 'Config/config.php') => config_path($this::$moduleNameLower . '.php'),
+            module_path(self::MODULE_NAME, 'Config/config.php') => config_path(self::MODULE_LOWER_NAME . '.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path($this::$moduleName, 'Config/config.php'),
-            $this::$moduleNameLower
+            module_path(self::MODULE_NAME, 'Config/config.php'),
+            self::MODULE_LOWER_NAME
         );
     }
 
@@ -92,8 +95,8 @@ class DashboardServiceProvider extends ServiceProvider
     {
         $paths = [];
         foreach (Config::get('view.paths') as $path) {
-            if (is_dir($path . '/modules/' . $this::$moduleNameLower)) {
-                $paths[] = $path . '/modules/' . $this::$moduleNameLower;
+            if (is_dir($path . '/modules/' . self::MODULE_LOWER_NAME)) {
+                $paths[] = $path . '/modules/' . self::MODULE_LOWER_NAME;
             }
         }
 

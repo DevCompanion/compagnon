@@ -8,7 +8,7 @@ export default function Index() {
       <Head title="Compagnon | Your next productivity tool with NativePHP" />
       <DefaultLayout>
         <div className="relative flex flex-col gap-4 justify-center items-center min-h-screen">
-          <h1 className="text-4xl">
+          <h1 className="font-nunito text-4xl">
             Hello <span className="font-black">COMPAGNON</span>
           </h1>
           <ApplicationLogo className="w-20 h-20" />

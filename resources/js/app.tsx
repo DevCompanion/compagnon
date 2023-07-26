@@ -21,7 +21,7 @@ createInertiaApp({
 
     if (isModule.length === 2) {
       return await resolvePageComponent(
-        `../../modules/${isModule[0]}/Resources/assets/js/Pages/${isModule[1]}.tsx`,
+        `../../modules/${isModule[0]}/Resources/js/Pages/${isModule[1]}.tsx`,
         import.meta.glob('../../modules/**/*.tsx')
       );
     }
@@ -29,7 +29,7 @@ createInertiaApp({
     if (isModule.length === 3) {
       const moduleType = isModule[0] === 'Modules' ? 'modules' : 'external-modules';
       return await resolvePageComponent(
-        `../../${moduleType}/${isModule[1]}/Resources/assets/js/Pages/${isModule[2]}.tsx`,
+        `../../${moduleType}/${isModule[1]}/Resources/js/Pages/${isModule[2]}.tsx`,
         import.meta.glob('../../external-modules/**/*.tsx')
       );
     }
