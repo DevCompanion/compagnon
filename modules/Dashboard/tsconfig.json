@@ -19,13 +19,13 @@
     },
     "include": [
         ".eslintrc.cjs",
-        "Resources/assets/js/**/*.js",
-        "Resources/assets/js/**/*.ts",
-        "Resources/assets/js/**/*.tsx",
-        "Resources/assets/js/**/*.d.ts",
+        "Resources/js/**/*.js",
+        "Resources/js/**/*.ts",
+        "Resources/js/**/*.tsx",
+        "Resources/js/**/*.d.ts",
         "Tests/**/*.js",
         "Tests/**/*.ts",
         "Tests/**/*.tsx",
-        "Tests/**/*.d.ts",
+        "Tests/**/*.d.ts"
     ]
 }

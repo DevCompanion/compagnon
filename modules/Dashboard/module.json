@@ -7,5 +7,9 @@
     "providers": [
         "Modules\\Dashboard\\Providers\\DashboardServiceProvider"
     ],
+    "aliases": {
+        "MenuFactory": "Modules\\Dashboard\\Support\\Facades\\MenuFactory",
+        "Test": "Modules\\Dashboard\\Support\\Facades\\Test"
+    },
     "files": []
 }
