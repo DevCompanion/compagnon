@@ -5,6 +5,7 @@ return [
     'metadata' => [
         'category_path' => [
             'category.others'
-        ]
+        ],
+        //'icon' => Module::asset('$LOWER_NAME$:images/icon.svg'),
     ],
 ];

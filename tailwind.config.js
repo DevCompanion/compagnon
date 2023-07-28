@@ -28,7 +28,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Roboto', ...defaultTheme.fontFamily.sans],
-        nunito: "'Nunito'",
+        nunito: 'Nunito',
       },
       colors: {
         border: 'hsl(var(--border))',

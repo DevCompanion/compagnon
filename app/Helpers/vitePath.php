@@ -15,7 +15,7 @@ if ( ! function_exists('vite_path')) {
         }
 
         if (2 === count($parts)) {
-            $path = "modules/{$parts[0]}/Resources/assets/js/Pages/{$parts[1]}.tsx";
+            $path = "modules/{$parts[0]}/Resources/js/Pages/{$parts[1]}.tsx";
             if (file_exists(base_path('/') . $path)) {
                 return $path;
             }
@@ -28,7 +28,7 @@ if ( ! function_exists('vite_path')) {
                 default => throw new \RuntimeException("The component {$component} does not exist."),
             };
 
-            $path = "{$moduleType}/{$parts[1]}/Resources/assets/js/Pages/{$parts[2]}.tsx";
+            $path = "{$moduleType}/{$parts[1]}/Resources/js/Pages/{$parts[2]}.tsx";
             if (file_exists(base_path('/') . $path)) {
                 return $path;
             }
