@@ -78,7 +78,7 @@ Compagnon is open-source software licensed under the [MIT license](https://opens
 
 ## Credits
 
-- NativePHP
+- [NativePHP](https://nativephp.com/)
 - [Laravel](https://laravel.com/)
 - [Laravel Modules](https://docs.laravelmodules.com/)
 - [Inertia.js](https://inertiajs.com/)
