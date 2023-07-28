@@ -21,6 +21,7 @@ yarn-error.log
 /test-results/
 /playwright-report/
 /playwright/.cache/
+/dist
 
 # Laravel IDE Helper
 .phpstorm.meta.php
