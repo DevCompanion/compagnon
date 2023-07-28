@@ -1,8 +1,8 @@
-import SideBar from '../../../../../../resources/js/Components/ui/sidebar/SideBar';
-import SideBarItem from '../../../../../../resources/js/Components/ui/sidebar/SideBarItem';
+import SideBar from '../../../../../resources/js/Components/ui/sidebar/SideBar';
+import SideBarItem from '../../../../../resources/js/Components/ui/sidebar/SideBarItem';
 import { FileJson2, Home } from 'lucide-react';
-import SideBarList from '../../../../../../resources/js/Components/ui/sidebar/SideBarList';
-import SideBarGroup from '../../../../../../resources/js/Components/ui/sidebar/SideBarGroup';
+import SideBarList from '../../../../../resources/js/Components/ui/sidebar/SideBarList';
+import SideBarGroup from '../../../../../resources/js/Components/ui/sidebar/SideBarGroup';
 
 export default function Dashboard() {
   return (
