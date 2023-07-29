@@ -13,7 +13,7 @@ export default async ({ mode }) => {
     ]);
   }
 
-  return await defineConfig({
+  return defineConfig({
     plugins: [
       laravel({
         input: 'resources/js/app.tsx',
