@@ -14,7 +14,7 @@ declare(strict_types=1);
 */
 
 Route::middleware('api')
-    ->name('menu.')
+    ->name('api.menu.')
     ->prefix('menu')
     ->group(function (): void {
         Route::get('/', 'MenuController@index')->name('index');

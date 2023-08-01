@@ -1,3 +1,5 @@
 {
-  "app.name": "Compagnon"
+  "app.name": "Compagnon",
+  "app.title": "Compagnon | Your next productivity tool with NativePHP",
+  "app.description": "a productivity tool that helps you to manage your tasks with ease."
 }

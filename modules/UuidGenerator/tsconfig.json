@@ -26,6 +26,7 @@
         "Tests/**/*.js",
         "Tests/**/*.ts",
         "Tests/**/*.tsx",
-        "Tests/**/*.d.ts"
+        "Tests/**/*.d.ts",
+        "../../resources/js/types/global.d.ts"
     ]
 }

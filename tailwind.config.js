@@ -10,19 +10,23 @@ export default {
     './resources/views/**/*.blade.php',
     './resources/js/**/*.tsx',
     './modules/**/resources/views/**/*.blade.php',
-    './modules/**/Resources/assets/js/**/*.tsx',
+    './modules/**/Resources/js/**/*.tsx',
     './external-modules/**/resources/views/**/*.blade.php',
     './external-modules/**/resources/js/**/*.tsx',
   ],
   darkMode: ['class'],
 
   theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     container: {
       center: true,
       padding: '2rem',
-      screens: {
-        '2xl': '1400px',
-      },
     },
 
     extend: {
