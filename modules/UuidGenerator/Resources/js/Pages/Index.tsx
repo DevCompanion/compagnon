@@ -10,8 +10,8 @@ export default function Index({ uuid, ns }: PageProps<{ uuid: string; ns: string
   return (
     <>
       <Head title={t('title', { ns })} />
-      <DefaultLayout>
-        <div className="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
+      <DefaultLayout name={t('title', { ns })}>
+        <div className="mx-4 my-4 min-h-screen flex flex-col gap-4">
           <UuidGenerator ns={ns} />
           <UuidValidator ns={ns} />
         </div>

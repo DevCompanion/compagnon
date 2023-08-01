@@ -36,6 +36,7 @@ class NativeAppServiceProvider
             ->register();
 
         Window::open()
+            ->url(route('dashboard.index'))
             ->width(800)
             ->height(800);
 
