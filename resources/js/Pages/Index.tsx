@@ -1,11 +1,14 @@
 import { Head } from '@inertiajs/react';
 import DefaultLayout from '@/Layouts/DefaultLayout';
 import ApplicationLogo from '@/Components/app/ApplicationLogo';
+import { useTranslation } from 'react-i18next';
 
 export default function Index() {
+  const { t } = useTranslation();
+
   return (
     <>
-      <Head title="Compagnon | Your next productivity tool with NativePHP" />
+      <Head title={t('app.title', { ns: '' })} />
       <DefaultLayout>
         <div className="relative flex flex-col gap-4 justify-center items-center min-h-screen">
           <h1 className="font-nunito text-4xl">

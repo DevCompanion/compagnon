@@ -8,8 +8,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "lint-staged": "lint-staged",
-    "format": "prettier '(resources/{js,ts}/**/*.{js,jsx,ts,tsx})|(modules/**/Resources/assets/{js,ts}/**/*.{js,jsx,ts,tsx})' --config .prettierrc --check",
-    "format:fix": "prettier '(resources/{js,ts}/**/*.{js,jsx,ts,tsx})|(modules/**/Resources/assets/{js,ts}/**/*.{js,jsx,ts,tsx})' --config .prettierrc --write",
+    "format": "prettier '(resources/{js,ts}/**/*.{js,jsx,ts,tsx})|(modules/**/Resources/{js,ts}/**/*.{js,jsx,ts,tsx})' --config .prettierrc --check",
+    "format:fix": "prettier '(resources/{js,ts}/**/*.{js,jsx,ts,tsx})|(modules/**/Resources/{js,ts}/**/*.{js,jsx,ts,tsx})' --config .prettierrc --write",
     "pre-commit": "lint-staged && npm run format:fix"
   },
   "devDependencies": {
