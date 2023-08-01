@@ -16,7 +16,7 @@ export default function UuidGenerator({ ns }: PageProps<{ ns: string }>) {
 
   return (
     <>
-      <div className="w-full sm:max-w-xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+      <div className="w-full px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
         <div className="flex flex-row">
           <div className="flex-grow">
             <div className="flex flex-wrap text-lg font-semibold text-gray-900 gap-4">

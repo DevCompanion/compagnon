@@ -1,15 +1,18 @@
 import { type PropsWithChildren } from 'react';
+import SideBarApp from '@/Components/app/SideBarApp';
+import TopBarApp from '@/Components/app/TopBarApp';
 
-export default function DefaultLayout({ children }: PropsWithChildren) {
+export default function DefaultLayout({
+  children,
+  showSidebar = true,
+  name,
+}: PropsWithChildren<{ showSidebar?: boolean; name?: string }>) {
   return (
-    <div className="min-h-screen flex flex-col sm:flex-row pt-6 sm:pt-0 bg-white">
-      {/* <SideBar /> */}
-
-      <div className="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-        {/* <TopBar name/desc /> */}
-        <div className="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-          {children}
-        </div>
+    <div className="min-h-screen flex flex-col sm:flex-row h-screen w-screen bg-white dark:bg-slate-900">
+      <SideBarApp showSidebar={showSidebar} />
+      <div className="min-h-screen w-full bg-white">
+        <TopBarApp name={name} showSidebar={showSidebar} />
+        {children}
       </div>
     </div>
   );

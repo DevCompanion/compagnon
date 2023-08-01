@@ -1,23 +1,60 @@
-import { type ReactNode } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
+import { X } from 'lucide-react';
+import clsx from 'clsx';
 
 interface SideBarProps {
   children: ReactNode;
   brand: string;
+  url: string;
 }
 
-export default function SideBar({ children, brand }: SideBarProps) {
+export default function SideBar({ children, brand, url = '#' }: SideBarProps) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const handleClick = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  const CloseButton = (
+    <X className="text-brown-700 cursor-pointer" size={24} onClick={handleClick} />
+  );
+
+  const handleWindowSizeChange = () => {
+    setIsMobile(window.innerWidth <= 640);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+    window.addEventListener('app:sidebar:open', () => {
+      setShowSidebar(true);
+    });
+
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+      window.removeEventListener('app:sidebar:open', () => {
+        setShowSidebar(true);
+      });
+    };
+  }, []);
+
   return (
     <>
-      <div className="h-screen w-screen bg-white dark:bg-slate-900">
-        <aside
-          id="sidebar"
-          className="fixed left-0 top-0 z-40 h-screen w-64 transition-transform"
-          aria-label="SideBar"
-        >
-          <div className="flex h-full flex-col overflow-y-auto border-r border-slate-200 bg-white px-4 py-4 dark:border-slate-700 dark:bg-slate-900">
+      <aside
+        id="sidebar"
+        className={clsx({
+          'h-full ease-in-out duration-300': true,
+          'w-3/12': !isMobile,
+          'w-64 top-0 -left-64 fixed z-40': isMobile,
+          'translate-x-full': isMobile && showSidebar,
+          'translate-x-0': isMobile && !showSidebar,
+        })}
+        aria-label="SideBar"
+      >
+        <div className="flex h-full flex-col overflow-y-auto border-r border-slate-200 bg-white px-4 pb-4 dark:border-slate-700 dark:bg-slate-900">
+          <div className="mb-4 flex items-center justify-between rounded-lg py-2 text-slate-900 dark:text-white">
             <a
-              href="#"
-              className="mb-10 flex items-center rounded-lg py-2 text-slate-900 dark:text-white"
+              href={url}
+              className="flex items-center rounded-lg py-2 text-slate-900 dark:text-white"
             >
               <svg
                 className="h-10 w-10"
@@ -77,10 +114,11 @@ export default function SideBar({ children, brand }: SideBarProps) {
                 {brand}
               </span>
             </a>
-            {children}
+            {isMobile && CloseButton}
           </div>
-        </aside>
-      </div>
+          {children}
+        </div>
+      </aside>
     </>
   );
 }
