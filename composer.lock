@@ -7464,16 +7464,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v2.9.5",
+            "version": "v2.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "be41181b435ce3d99d01be0d6c1e2602f153b82b"
+                "reference": "4de70da0a0d4aebc141f5a9a9ad4ccae56329895"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/be41181b435ce3d99d01be0d6c1e2602f153b82b",
-                "reference": "be41181b435ce3d99d01be0d6c1e2602f153b82b",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/4de70da0a0d4aebc141f5a9a9ad4ccae56329895",
+                "reference": "4de70da0a0d4aebc141f5a9a9ad4ccae56329895",
                 "shasum": ""
             },
             "require": {
@@ -7492,7 +7492,7 @@
             "require-dev": {
                 "pestphp/pest-dev-tools": "^2.12.0",
                 "pestphp/pest-plugin-type-coverage": "^2.0.0",
-                "symfony/process": "^6.3.0"
+                "symfony/process": "^6.3.2"
             },
             "bin": [
                 "bin/pest"
@@ -7514,6 +7514,7 @@
                         "Pest\\Plugins\\Profile",
                         "Pest\\Plugins\\Retry",
                         "Pest\\Plugins\\Snapshot",
+                        "Pest\\Plugins\\Verbose",
                         "Pest\\Plugins\\Version",
                         "Pest\\Plugins\\Parallel"
                     ]
@@ -7549,7 +7550,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v2.9.5"
+                "source": "https://github.com/pestphp/pest/tree/v2.10.1"
             },
             "funding": [
                 {
@@ -7561,7 +7562,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-07-24T18:13:17+00:00"
+            "time": "2023-07-31T10:58:13+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
