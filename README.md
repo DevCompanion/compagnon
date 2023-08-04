@@ -1,8 +1,12 @@
 # Compagnon
 
+An application that will bring together the tools developers need in one place!
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-An application with a set of development tools and resources to help developers.
+Stop searching for "uuid v4", "compress pdf", "compress img", "convert json to yaml", etc. on Google
+
+The Compagnon app will bring these kinds of tools together in one place, so you won't have to go online every time.
 
 ## Download (MacOS, Windows, Linux)
 
@@ -61,10 +65,10 @@ Access Compagnon in your web browser at http://localhost/
 - [x] Add a documentation for Compagnon
 - [x] Remove default views
 - [x] Add stubs for modules
+- [x] Add a documentation for modules
 - [ ] Add vitest for unit tests
 - [ ] Update the UI layout
 - [ ] Add required modules as Dashboard and Settings
-- [ ] Add a documentation for (external) modules
 - [ ] Support NativePHP
 - [ ] Create more modules
 
