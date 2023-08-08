@@ -10,25 +10,24 @@ use Nwidart\Modules\Facades\Module;
 
 class MenuFactory
 {
+    /**
+     * @return Collection<array<string, \Nwidart\Modules\Module[]>>
+     */
     public function create(): Collection
     {
         return collect(Module::all())
-            ->map(function (\Nwidart\Modules\Module $module): ?array {
+            ->map(function (\Nwidart\Modules\Module $module): ?\Nwidart\Modules\Module {
                 if (DashboardServiceProvider::MODULE_LOWER_NAME === $module->getLowerName()) {
                     return null;
                 }
 
-                $categoryPath = config(sprintf('%s.metadata.category_path', $module->getLowerName()), []);
-                $icon = config(sprintf('%s.metadata.icon', $module->getLowerName()));
-
-                return [
-                    'ns' => $module->getName(),
-                    'route_name' => sprintf('%s.index', $module->getLowerName()),
-                    'icon' => $icon,
-                    'category' => __(\sprintf('module.%s', $categoryPath[0] ?? 'category.others')),
-                ];
+                return $module;
             })
             ->filter()
-            ->groupBy('category');
+            ->groupBy(static function (\Nwidart\Modules\Module $module): string {
+                $categoryPath = config(sprintf('%s.metadata.category_path', $module->getLowerName()), []);
+
+                return __(\sprintf('module.%s', $categoryPath[0] ?? 'category.others'));
+            });
     }
 }
