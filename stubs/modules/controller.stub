@@ -12,8 +12,8 @@ class $CLASS$ extends Controller
 {
     public function index(): Response
     {
-        return Inertia::render(\sprintf('%s::Index', $STUDLY_NAME$ServiceProvider::$moduleName), [
-            'ns' => $STUDLY_NAME$ServiceProvider::$moduleName,
+        return Inertia::render(\sprintf('%s::Index', $STUDLY_NAME$ServiceProvider::MODULE_NAME), [
+            'ns' => $STUDLY_NAME$ServiceProvider::MODULE_NAME,
         ]);
     }
 
