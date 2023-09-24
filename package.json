@@ -13,7 +13,7 @@
     "pre-commit": "lint-staged && npm run format:fix"
   },
   "devDependencies": {
-    "@headlessui/react": "^1.7.16",
+    "@headlessui/react": "^1.7.17",
     "@inertiajs/react": "^1.0.0",
     "@playwright/test": "^1.36.2",
     "@tailwindcss/forms": "^0.5.4",
