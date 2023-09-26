@@ -1,0 +1,11 @@
+{
+    "name": "PDFCompressor",
+    "alias": "pdfcompressor",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\PDFCompressor\\Providers\\PDFCompressorServiceProvider"
+    ],
+    "files": []
+}
