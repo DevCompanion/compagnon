@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-if ( ! function_exists('vite_path')) {
+if (!function_exists('vite_path')) {
     /**
      * Generate the correct path for vite based on the component name.
      */

@@ -28,12 +28,12 @@ class GhostscriptWrapper implements PDFCompressorProviderInterface
 
         exec($gsCommand, $output, $returnCode);
 
-        if (0 !== $returnCode || ! file_exists($outputPath)) {
+        if (0 !== $returnCode || !file_exists($outputPath)) {
             throw new Exception('Ghostscript compression failed.');
         }
 
         $content = file_get_contents($outputPath);
-        if ( ! $content) {
+        if (!$content) {
             throw new Exception('Ghostscript compression failed.');
         }
 
@@ -48,7 +48,7 @@ class GhostscriptWrapper implements PDFCompressorProviderInterface
     private function getInputPathFromResource(mixed $resource): string
     {
         $tempFilePath = tempnam(sys_get_temp_dir(), 'tempfile_');
-        if ( ! $tempFilePath) {
+        if (!$tempFilePath) {
             throw new Exception('Unable to create temporary file.');
         }
 
@@ -62,7 +62,7 @@ class GhostscriptWrapper implements PDFCompressorProviderInterface
     private function getInputPathFromUrl(mixed $resource): string
     {
         $tempFilePath = tempnam(sys_get_temp_dir(), 'tempfile_');
-        if ( ! $tempFilePath) {
+        if (!$tempFilePath) {
             throw new Exception('Unable to create temporary file.');
         }
 

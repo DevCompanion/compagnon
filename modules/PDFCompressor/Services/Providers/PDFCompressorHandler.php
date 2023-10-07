@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\PDFCompressor\Services\Providers;
 
 use Modules\PDFCompressor\Contracts\Providers\PDFCompressorProviderInterface;
+use Throwable;
 
 class PDFCompressorHandler
 {
@@ -20,8 +21,16 @@ class PDFCompressorHandler
 
     public function compress(string $providerId, mixed $resource, array $options = []): ?string
     {
-        // load the provider
-        // no provider -> return null
-        // compress else
+        foreach ($this->providers as $provider) {
+            if (!$provider->supports($providerId)) {
+                continue;
+            }
+
+            try {
+                return $provider->compress($resource, $options);
+            } catch (Throwable $e) {
+                return null;
+            }
+        }
     }
 }
