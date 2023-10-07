@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +13,8 @@
 |
 */
 
-Route::prefix('pdfcompressor')->group(function() {
-    Route::name('pdfcompressor.')->group(function () {
-      Route::get('/', 'PDFCompressorController@index')->name('index');
+Route::prefix('pdfcompressor')->group(function (): void {
+    Route::name('pdfcompressor.')->group(function (): void {
+        Route::get('/', 'PDFCompressorController@index')->name('index');
     });
 });

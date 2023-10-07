@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\PDFCompressor\Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class PDFCompressorDatabaseSeeder extends Seeder
 {
@@ -12,7 +14,7 @@ class PDFCompressorDatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         Model::unguard();
 
